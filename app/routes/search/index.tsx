@@ -15,6 +15,7 @@ const getQuery = async (criteria: string | null): Promise<ContactType[] | undefi
     const BASE_URL = import.meta.env.VITE_SITE_BASE_URL
     const endpoint = "/api/listings/search?q=" + criteria
     const url = BASE_URL + endpoint
+    console.log(url + "aa")
     try {
         const response = await fetch(url, {
             method: "GET",
