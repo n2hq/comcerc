@@ -92,8 +92,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const requesturl = baseurl + endpoint
     const navigator = useNavigate()
 
-    console.log(requesturl)
-
     let signin = async (data: LoginType) => {
 
         try {
