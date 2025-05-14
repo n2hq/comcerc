@@ -10,6 +10,8 @@ import SearchResponse from './assets/SearchResult'
 import SearchResult from './assets/SearchResult'
 import LatestBusinesses from './assets/LatestBusinesses'
 import { getListingByCategory } from '~/lib/Lib'
+import SearchPagination from './assets/SearchPagination'
+import ResultCard from './assets/ResultCard'
 
 const getQuery = async (criteria: string | null): Promise<ContactType[] | undefined> => {
     const BASE_URL = import.meta.env.VITE_SITE_BASE_URL
@@ -43,7 +45,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     const query = url.searchParams.get("q") || "";
     let datar = await getQuery(query)
     let realestate = await getListingByCategory('automotive', 4)
-    console.log(realestate)
+
 
     let data = {
         datar: datar,
@@ -56,12 +58,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 const index = () => {
     const data: any = useLoaderData()
 
-    useEffect(() => {
-        if (data) {
-            //alert(data.query)
-            console.log(JSON.stringify(data.realestate))
-        }
-    }, [data])
+
 
 
     return (
@@ -74,16 +71,26 @@ const index = () => {
                     contacts={data.datar}
                     query={data.query}
                 >
-                    <SearchResult contacts={data.datar} />
+                    {/* <SearchResult contacts={data.datar} /> */}
+
+                    <SearchPagination
+                        data={data.datar}
+                        itemsPerPage={20}
+                        renderItem={(item: any) => {
+                            return (
+                                <ResultCard key={index} listing={item} />
+                            )
+                        }}
+                    />
                     <LatestBusinesses
                         category={'entertainment'}
-                        limit={4}
+                        limit={5}
                         title={"Entertainment"}
                         subtitle={"Entertainment based businesses added in the last 7 days"}
                     />
                     <LatestBusinesses
                         category={'services'}
-                        limit={4}
+                        limit={5}
                         title={"Services"}
                         subtitle={"Services based businesses added in the last 7 days"}
                     />
