@@ -50,6 +50,8 @@ const Review = ({ listing }: any) => {
     const handleShow = () => {
         if (user?.guid === null || user?.guid === undefined) {
             notification.confirm('Login to continue', handleResult)
+        } else {
+            rating.setShow(true)
         }
 
         /*  if (user?.guid === null || user?.guid === undefined) {

@@ -63,6 +63,7 @@ const Related = ({
     const [ti, setTi] = useState('')
     const [st, setSt] = useState('')
     const [listings, setListings] = useState<any[]>([])
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
 
     useEffect(() => {
         if (title && subtitle) {
@@ -109,7 +110,7 @@ const Related = ({
                                                 <img
                                                     className={`object-cover w-full h-full
                                                     text-sm`}
-                                                    src={data?.image_url}
+                                                    src={IMG_BASE_URL + data?.image_url}
                                                     alt={data.title}
                                                 />
                                             </div>
