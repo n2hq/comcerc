@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { MdEditSquare } from 'react-icons/md'
+import { useNotification } from '~/context/NotificationContext'
 import { headers } from '~/lib/Lib'
 
 const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
@@ -17,6 +18,7 @@ const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
     const fileInputRef = useRef<HTMLInputElement | null>(null)
     const [isImgSelected, setIsImageSelected] = useState(false)
     const [working, setWorking] = useState<boolean>(false)
+    const notification = useNotification()
 
     const handleImageClick = () => {
         fileInputRef.current?.click()
@@ -35,6 +37,7 @@ const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
 
     const handleUpload = async () => {
         setWorking(true)
+        notification.notify('Working...')
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         if (isImgSelected) {
@@ -60,11 +63,11 @@ const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
 
                 if (!response.ok) {
                     let error = response.json().then((data) => {
-                        alert(data.message)
+                        notification.alertCancel('', data.message)
                     })
 
                 } else {
-                    alert('Image uploaded success!')
+                    notification.alertReload('', 'Image uploaded successfully!')
                 }
 
             } catch (error) {
@@ -73,7 +76,7 @@ const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
                 setWorking(false)
             }
         } else {
-            alert('Please select an image to continue.')
+            notification.alertCancel('', 'Please select an image to continue.')
             setWorking(false)
         }
     }
