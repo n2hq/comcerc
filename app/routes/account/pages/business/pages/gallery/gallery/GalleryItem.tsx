@@ -13,6 +13,17 @@ const GalleryItem = ({
 }: any) => {
     const [menu, setMenu] = useState<any>(false)
 
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
+    let imgconst = ""
+
+    if (item.image_url) {
+        imgconst = IMG_BASE_URL + item.image_url
+    } else {
+        imgconst = 'https://trendyblinds.ca/wp-content/uploads/2023/09/3.-3D-WALLPAPER-SKU0015.jpg'
+    }
+
+    const [imgSrc, setImgSrc] = useState<any>(imgconst)
+
     const showMenu = () => {
         setMenu(true)
     }
@@ -47,7 +58,7 @@ const GalleryItem = ({
                          rounded-md overflow-hidden -z-10
                     `}>
                     <img
-                        src={item.image_url}
+                        src={imgSrc}
                         alt=""
                         className={`object-cover w-full h-full -z-40
                         `}

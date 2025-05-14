@@ -6,7 +6,7 @@ import { FiArrowRight } from 'react-icons/fi'
 import { RiDoubleQuotesL } from 'react-icons/ri'
 
 const ResultCard = ({ listing }: any) => {
-
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
     return (
 
         <div className={` cursor-pointer`} onClick={(e) => {
@@ -15,7 +15,7 @@ const ResultCard = ({ listing }: any) => {
             <div className={`flex pt-4  rounded-sm gap-4`}>
                 <div className={`relative min-w-[100px] w-[100px] h-[100px]`}>
                     <img
-                        src={listing.image_url}
+                        src={IMG_BASE_URL + listing.image_url}
                         alt={listing.title}
                         className={`object-cover w-full h-full text-sm
                             rounded `}

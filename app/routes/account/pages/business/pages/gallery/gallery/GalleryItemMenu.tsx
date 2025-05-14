@@ -13,11 +13,11 @@ const GalleryItemMenu = ({
     const [imgSrc, setImgSrc] = useState<any>(null)
     const editPhoto = useEditPhotoDialogContext()
     const notification = useNotification()
-
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
 
     const handleOpenDialog = () => {
         editPhoto.setDialog(true)
-        editPhoto.setImgSrc(item.image_url)
+        editPhoto.setImgSrc(IMG_BASE_URL + item.image_url)
         editPhoto.setImageTitle(item.image_title)
         editPhoto.setUserGuid(userGuid)
         editPhoto.setBusinessGuid(businessGuid)

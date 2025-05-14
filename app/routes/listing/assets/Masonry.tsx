@@ -16,7 +16,7 @@ type MasonryProps = {
 };
 
 const Masonry = ({ images, listing }: MasonryProps) => {
-
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
     const [items, setItems] = useState<Image[]>([]);
     const slider = useSliderContext()
     const gallery = useGallery()
@@ -69,7 +69,7 @@ const Masonry = ({ images, listing }: MasonryProps) => {
                                     onMouseDown={(e) => showCarousel(index)}
                                 >
                                     <img
-                                        src={img.image_url}
+                                        src={IMG_BASE_URL + img.image_url}
                                         alt={img.alt}
                                         className={`object-cover w-full h-full rounded-md shadow-md 
                                                 transition-transform`}

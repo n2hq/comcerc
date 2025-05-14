@@ -5,7 +5,7 @@ import { Listing, ListingType } from '~/lib/Interfaces'
 
 
 const Entity = ({ contact }: Listing) => {
-    console.log(contact)
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
     return (
         <>
             <div className=' z-0 pt-16 pb-16'>
@@ -24,7 +24,7 @@ const Entity = ({ contact }: Listing) => {
                                 <div className=' md:flex'>
                                     <div className=' min-w-[120px] w-[120px]   h-[100px] relative rounded-[12px] overflow-hidden float-left mr-4 shadow-lg'>
                                         <img
-                                            src={contact?.img}
+                                            src={IMG_BASE_URL + contact?.img}
                                             alt={contact?.title}
                                             className=' object-cover w-full h-full text-[11px] bg-blue-50 flex place-content-center place-items-center text-center'
                                         />

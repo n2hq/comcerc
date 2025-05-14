@@ -12,6 +12,8 @@ export function useSliderContext() {
     return context
 }
 
+const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
+
 export const SliderProvider = ({ children }: any) => {
     const [dialog, setDialog] = useState<any>(false)
     const [selectedSlide, setSelectedSlide] = useState<any>(null)
@@ -66,7 +68,7 @@ export const SliderProvider = ({ children }: any) => {
                                         return (
                                             <img
                                                 key={index}
-                                                src={slide.image_url}
+                                                src={IMG_BASE_URL + slide.image_url}
                                                 alt=""
                                                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                                                 className={`object-scale-down w-full h-full 

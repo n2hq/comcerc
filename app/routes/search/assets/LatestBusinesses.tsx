@@ -4,54 +4,7 @@ import LatestStarRating from './LatestStarRating'
 import { Link } from '@remix-run/react'
 import { getListingByCategory } from '~/lib/Lib'
 
-const latestData = [
-    {
-        title: "Jonathan B Lafrance Law OFC",
-        phone: `(661) 257-8883`,
-        short_description: `Attorneys, Child Support Collections, Automoous`,
-        business_phrases: `Attorneys, Child Support Collections, Automoous`,
-        website: '',
-        rating: 3,
-        address_one: '3456 Upper Manhattan Avenue Stanford, Santa Clarita, CA 91355',
-        gid: 'dfasfdasdfasfasdfsdasdf',
-        img: `https://www.creativewallpaper.co.uk/-89018901/Handler/Picture/PI/T/0000271_dubai-skyline.jpeg`
-    },
-    {
-        title: "Jonathan B Lafrance Law OFC",
-        phone: `(661) 257-8883`,
-        short_description: `Attorneys, Child Support Collections, Automoous`,
-        business_phrases: `Attorneys, Child Support Collections, Automoous`,
-        website: 'http://google.com',
-        rating: 3,
-        address_one: '3456 Upper Manhattan Avenue Stanford, Santa Clarita, CA 91355',
-        gid: 'dfasfdasdfasfasdfsdasmf',
-        img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWBK5WgtHDD5zUI6BMZxM-tT4GB0TnWYfUUA&s`
-    },
-    {
-        title: "Jonathan B Lafrance Law OFC & Offers",
-        phone: `(661) 257-8883`,
-        short_description: `Attorneys, Child Support Collections, Automoous`,
-        business_phrases: `Attorneys, Child Support Collections, Automoous`,
-        website: 'http://google.com',
-        rating: 3,
-        address_one: '3456 Upper Manhattan Avenue Stanford, Santa Clarita, CA 91355',
-        gid: 'dfasfdasdfasfasdfsdasdg',
-        img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHQmqoXY7AcbqKifcE61X0sGp4MrTPX20MA&s`
-    },
-    {
-        title: "Jonathan B Lafrance Law OFC",
-        phone: `(661) 257-8883`,
-        short_description: `Attorneys, Child Support Collections, Automoous`,
-        business_phrases: `Attorneys, Child Support Collections, Automoous`,
-        website: '',
-        rating: 3,
-        address_one: '3456 Upper Manhattan Avenue Stanford, Santa Clarita, CA 91355',
-        gid: 'dfasfdasdfasfasdfsdasd8',
-        img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xLFPhfv6ucJiOHHEnTc6pdHxN_z_S2hdUw&s`
-    },
 
-
-]
 
 const LatestBusinesses = ({
     title,
@@ -62,6 +15,7 @@ const LatestBusinesses = ({
     const [ti, setTi] = useState('')
     const [st, setSt] = useState('')
     const [listings, setListings] = useState<any[]>([])
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
 
     useEffect(() => {
         if (title && subtitle) {
@@ -107,7 +61,7 @@ const LatestBusinesses = ({
                                             <img
                                                 className={`object-cover w-full h-full
                                                     text-sm`}
-                                                src={data?.image_url}
+                                                src={IMG_BASE_URL + data?.image_url}
                                                 alt={data.title}
                                             />
                                         </div>

@@ -31,6 +31,7 @@ export const GalleryProvider = ({ children }: any) => {
     const [gallery, setGallery] = useState<any>(null)
     const slider = useSliderContext()
     const [listing, setListing] = useState<any>(null)
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
 
     const handleClose = () => setShow(false)
     let vals = {
@@ -80,7 +81,7 @@ export const GalleryProvider = ({ children }: any) => {
                                                  overflow-hidden`}>
                                                 <img
                                                     className={`object-cover w-full h-full`}
-                                                    src={image.image_url} alt="" />
+                                                    src={IMG_BASE_URL + image.image_url} alt="" />
                                             </div>
                                         )
                                     })

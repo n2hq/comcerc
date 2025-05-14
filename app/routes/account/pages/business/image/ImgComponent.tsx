@@ -3,8 +3,15 @@ import { MdEditSquare } from 'react-icons/md'
 import { headers } from '~/lib/Lib'
 
 const ImgComponent = ({ listing, user, businessProfileImageData }: any) => {
+    const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
+    let imgconst = ""
 
-    const imgconst = businessProfileImageData.image_url || 'https://trendyblinds.ca/wp-content/uploads/2023/09/3.-3D-WALLPAPER-SKU0015.jpg'
+    if (businessProfileImageData.image_url) {
+        imgconst = IMG_BASE_URL + businessProfileImageData.image_url
+    } else {
+        imgconst = 'https://trendyblinds.ca/wp-content/uploads/2023/09/3.-3D-WALLPAPER-SKU0015.jpg'
+    }
+
     const [imgSrc, setImgSrc] = useState<any>(imgconst)
     const [selectedFile, setSelectedFile] = useState<any>(null)
     const fileInputRef = useRef<HTMLInputElement | null>(null)
