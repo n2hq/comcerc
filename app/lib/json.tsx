@@ -22,7 +22,22 @@ export const navlinks = [
     },
     {
         id: 3,
-        url: '#',
-        label: "Contact"
+        url: '/search?q=hotels',
+        label: "Hotels"
+    },
+    {
+        id: 4,
+        url: '/search?q=travel',
+        label: "Travel"
+    },
+    {
+        id: 5,
+        url: `/search?q=real estate`,
+        label: "Real Estate"
+    },
+    {
+        id: 6,
+        url: '/search?q=services',
+        label: "Services"
     }
 ]
