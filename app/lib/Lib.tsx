@@ -72,7 +72,7 @@ export const getMetaData = (title: string, description: string, keywords: string
 }
 
 
-export const getQuery = async (criteria: string | null): Promise<ContactType[] | undefined> => {
+export const getQuery = async (criteria: string | undefined): Promise<ContactType[] | undefined> => {
     const BASE_URL = import.meta.env.VITE_SITE_BASE_URL
     const endpoint = "/api/listings/" + criteria
     const url = BASE_URL + endpoint
