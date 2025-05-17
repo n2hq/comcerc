@@ -58,19 +58,19 @@ export const GalleryProvider = ({ children }: any) => {
                     <div
                         onMouseDown={(e) => e.stopPropagation()}
                         className={`w-[95%] sm:w-[95%] md:w-[80%] h-fit mx-auto
-                         bg-white rounded-lg shadow-md space-y-6
+                         bg-white rounded-lg shadow-lg shadow-black/50 space-y-6
                          z-[3100] overflow-hidden`}>
 
                         <div className={`w-full h-full`}>
                             <div className={`border-b py-3 px-3`}>
                                 <div className={`font-bold text-gray-700
-                                    text-xl`}>
+                                    text-xl w-[80%] bg-blue-100 truncate`}>
                                     Gallery for {listing && listing?.title}
                                 </div>
                             </div>
                             <div className={`grid grid-cols-4 md:grid-cols-6 gap-2 
                                 max-h-[300px] overflow-y-auto pt-2 px-2 pb-2
-                                bg-black`}>
+                                bg-gray-200`}>
                                 {gallery &&
                                     gallery?.map((image: any, index: number) => {
                                         return (

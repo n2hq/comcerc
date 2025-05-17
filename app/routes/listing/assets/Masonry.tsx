@@ -64,7 +64,7 @@ const Masonry = ({ images, listing }: MasonryProps) => {
                         return (
                             <div key={index}>
 
-                                <div key={index} className={`h-[100px] sm:h-[100px] lg:h-[100px]
+                                <div key={index} className={`h-[80px] sm:h-[100px] lg:h-[100px]
                                     hover:cursor-pointer`}
                                     onMouseDown={(e) => showCarousel(index)}
                                 >
@@ -86,12 +86,12 @@ const Masonry = ({ images, listing }: MasonryProps) => {
                     shortGallery.length > 1 &&
                     <div
                         onMouseDown={(e) => showGallery(0)}
-                        className={` h-[100px] sm:h-[100px] lg:h-[100px] relative`}>
+                        className={` h-[80px] sm:h-[100px] lg:h-[100px] relative`}>
                         <div
                             className={`w-full h-full rounded-md shadow-md 
                                             transition-transform bg-black/80 flex flex-col
                                             place-items-center place-content-center text-white
-                                            text-[20px] cursor-pointer`}
+                                            text-[13px] cursor-pointer text-wrap`}
                         >
                             <BsArrowReturnRight /> view all...
                         </div>
